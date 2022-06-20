@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ !empty($title) ? $title . ' | ' : '' }}The Best Bookshop</title>
 
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
     @yield('stylesheets')
     @yield('scripts')
 </head>
