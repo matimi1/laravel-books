@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\Api\BookController;
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//      /api/books/latest
+Route::get('/books/latest', [BookController::class, 'latest']);
