@@ -7,7 +7,7 @@ const loadData = async () => {
 
     const container = document.getElementById('latest-books');
 
-    data.forEach(book => {
+    data.data.forEach(book => {
 
         const element = makeBookElement(book);
 
@@ -23,8 +23,21 @@ const makeBookElement = (book_data) => {
 
     element.classList.add('movie');
 
+    let authors_html = '';
+    book_data.authors.forEach((author, i) => {
+        if (i && i < book_data.authors.length - 1) {
+            authors_html += ', '
+        } else if (i) {
+            authors_html += ' and '
+        }
+
+        authors_html += `
+            <span class="movie__author">${author.name}</span>
+        `
+    })
+
     element.innerHTML = `
-        <h3 class="movie__title">${book_data.title}</h3>
+        <h3 class="movie__title">${book_data.title} by ${authors_html}</h3>
         <div class="movie__image">
             <img src="${book_data.image}" alt="book cover">
         </div>

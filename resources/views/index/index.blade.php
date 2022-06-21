@@ -16,4 +16,19 @@
 
 <div id="latest-books"></div>
 
+
+<ul>
+    @foreach ($books as $book)
+
+        <li>
+            {{ $book->title }}
+
+            @foreach ($book->authors as $author)
+                {{ $author->name }}
+            @endforeach
+        </li>
+
+    @endforeach
+</ul>
+
 @endsection

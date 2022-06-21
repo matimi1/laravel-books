@@ -17,7 +17,13 @@ use App\Http\Controllers\AboutController;
 
 
 Route::get('/', function () {
-    return view('index/index');
+
+    $books = \App\Models\Book::orderBy('title')->limit(100)->get();
+
+    $books->load('authors');
+
+    return view('index/index', compact('books'));
+
 })->name('homepage');
 
 Route::get('/about-us', [AboutController::class, 'aboutUs'])->name('about-us');
