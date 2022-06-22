@@ -26,5 +26,14 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Gate::define('admin', function($user) {
+
+            if (substr($user->email, -12) == '@data4you.cz') {
+                return true;
+            } else {
+                return false;
+            }
+
+        });
     }
 }

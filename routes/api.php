@@ -23,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //      /api/books/latest
 Route::get('/books/latest', [BookController::class, 'latest']);
+Route::get('/users', function() {
+    return \App\Models\User::orderBy('id')->get();
+});
