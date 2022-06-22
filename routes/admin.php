@@ -7,8 +7,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', [AdminController::class, 'index'])->name('admin.home');
+
+Route::get('/users', [UserController::class, 'index'])->name('admin.users');
 
 
 // Route::group([], function() {
