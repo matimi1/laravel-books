@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BookController;
 
 
 Route::get('/', function () {
@@ -27,3 +28,5 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::get('/about-us', [AboutController::class, 'aboutUs'])->name('about-us');
+
+Route::get('/books/popular', [BookController::class, 'popular']);
